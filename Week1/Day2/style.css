@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif, sans-serif;
+}
+
+header {
+    width: 100%;
+    background: #000;
+    padding: 10px 100px;
+    font-size: 10px;
+}
+
+.logo {
+   color: white;
+}
+.menu__link {
+    float: right;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}

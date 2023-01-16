@@ -1,0 +1,132 @@
+:root {
+    --green-color: rgb(22, 160, 133);
+    --red-color: rgb(215, 41, 42);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+}
+
+.gallery {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.card {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+}
+
+.card-img {
+    width: 200px;
+}
+
+.label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    position: absolute;
+    top: 15px;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+}
+
+.label-discount {
+    background-color: var(--red-color);
+    right: 10px;
+}
+
+.label-new {
+    background-color: var(--green-color);
+    left: 10px;
+}
+
+.card-title {
+    font-size: 12px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.price {
+    color: var(--green-color);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.prev-price {
+    color: lightgray;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+.card-button {
+    padding: 10px 10px;
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid gray;
+    margin: 10px auto;
+    font-size: 10px;
+    background-color: white;
+}
+
+
+.icons {
+    display: none;
+    padding-top: 100px;
+}
+
+.card:hover>.card-button {
+    background-color: var(--green-color);
+    color: white;
+    border: none;
+}
+
+.card-button:active {
+    background-color: var(--red-color);
+}
+
+.card:hover {
+    box-shadow: 5px 5px 8px #888888;
+}
+
+.img-div {
+    position: relative;
+    height: 260px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.card:hover .icons {
+    display: inline-block;
+}
+
+.icon {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.icon:hover {
+    background-color: var(--green-color);
+    color: white;
+}
+
+.icon-comment::before {
+    content: "hello";
+    display: none;
+
+}
+.icon:hover + .icon-comment::before {
+    display: inline-block;
+}
