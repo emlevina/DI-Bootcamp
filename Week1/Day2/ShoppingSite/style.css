@@ -5,6 +5,11 @@
     font-family:Arial, Helvetica, sans-serif, sans-serif;
 }
 
+:root {
+    --green-color: rgb(22, 160, 133);
+    --red-color: rgb(215, 41, 42);
+}
+
 header {
     width: 100%;
     background: #000;
@@ -15,8 +20,17 @@ header {
 .logo {
    color: white;
 }
-.menu__link {
+
+
+.menu {
     float: right;
+    display: flex;
+    gap: 20px;
+}
+
+
+.menu__link {
+    
     color: white;
     text-decoration: none;
     text-transform: uppercase;

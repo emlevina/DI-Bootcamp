@@ -1,0 +1,43 @@
+* {
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+main {
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 30px;
+    border: none;
+    background-color: rgb(232, 232, 232);
+    padding-left: 10px;
+}
+
+button {
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid gray;
+    margin: 10px auto;
+    background-color: white;
+}
+
+button:hover {
+    background-color: var(--green-color);
+    border:none;
+    color:white
+}
