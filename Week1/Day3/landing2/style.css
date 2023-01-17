@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+
+}
+
+.header {
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #32676D;
+}
+
+.main {
+    text-transform: uppercase;
+    background: rgb(124, 185, 180);
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.title {
+    text-align: center;
+}
+
+.form {
+    width: 50%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    row-gap: 15px;
+}
+
+label {
+    font-size: 12px;
+}
+
+.from__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input:not([type='checkbox']),
+select,
+.button {
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    color: grey;
+}
+
+.checkbox {
+    display: flex;
+    justify-self: left;
+    grid-column: span 3;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.select {
+    grid-column: span 3;
+}
+
+.button {
+    grid-column: span 3;
+    height: 40px;
+    text-transform: uppercase;
+    justify-self: center;
+    padding: 0 30px;
+    background-color: rgb(0, 161, 216);
+    color: white;
+}
