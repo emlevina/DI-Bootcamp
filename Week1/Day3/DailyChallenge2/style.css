@@ -1,0 +1,96 @@
+* {
+    margin: 0;padding: 0;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+}
+.grid1 {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    background: #000;
+}
+
+.box:nth-child(3n+1) {
+    background: salmon;
+}
+
+
+.box:nth-child(3n) {
+    background: rgb(250, 230, 114);
+}
+
+
+.box:nth-child(3n+2) {
+    background: rgb(168, 250, 114);
+}
+
+
+/* second grid */
+.grid2 {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+.box2 {
+    width: 50px;
+    height: 50px;
+    background: #000;
+}
+
+
+.box2:nth-child(4n+1){
+    background-color: rgb(139, 137, 137);
+}
+
+.box2:nth-child(4n+2){
+    background-color: rgb(66, 66, 66);
+}
+
+.box2:nth-child(4n+3){
+    background-color: rgb(32, 32, 32);
+}
+
+/* grid three */
+.grid3 {
+    position: relative;
+}
+
+.group1 {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 50vh;
+    gap: 5px;
+}
+
+.line {
+    width: 50px;
+    opacity: 0.5;
+}
+
+.line:nth-child(odd){
+    background-color: salmon;
+}
+
+.group2 {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.group2 .line {
+    width: inherit;
+    height: 50px;
+    /* background-color: blue; */
+}
