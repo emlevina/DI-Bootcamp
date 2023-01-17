@@ -1,0 +1,154 @@
+* {
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+body {
+
+    background-color: rgb(237, 234, 234);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    gap: 20px;
+    line-height: 150%;
+    position: relative;
+    width: calc(100vw - 200px);
+    margin: 0 auto;
+}
+
+.top {
+    border-bottom: 1px solid darkgrey;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.top__text {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 200;
+    position: relative;
+    text-transform: uppercase
+}
+
+.surname {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 100%;
+}
+
+.position {
+    text-transform: uppercase;
+}
+
+.photo {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 187, 187);
+}
+
+.bottom {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 2fr;
+    /* column-gap: 10px; */
+    row-gap: 20px;
+}
+
+.bottom:nth-child(2n+1){
+    border-left: 1px solid darkgrey;
+}
+
+.bottom > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.title::after, .name::after {
+    content: ' ';
+    height: 2px;
+    width: 50px;
+    background: orange;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact li {
+    list-style: none;
+}
+
+.contact li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact li a:hover {
+    color: orange;
+}
+
+.contact i {
+    background-color: orange;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gap {
+    width: 5px;
+    background: darkgray;
+    grid-row: span 3;
+    position: relative;
+    top: -20px
+}
+
+@media screen and (max-width: 600px) {
+    .bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom > .gap {
+        display: none;
+    }
+}
