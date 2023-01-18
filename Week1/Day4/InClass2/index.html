@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+    <section>
+        <h2>1.</h2>
+        <p>
+            Create a structure with a container, 2 rows and 3 columns in each row. What should be the width of each column
+            so that the 3 columns will take the whole width of the row ?
+        </p>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-4">ss</div>
+                <div class="col-md-4">dd</div>
+                <div class="col-md-4">dd</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">dd</div>
+                <div class="col-md-4">dd</div>
+                <div class="col-md-4">dd</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2.</h2>
+        <p>Create a structure with a container, 2 rows and 2 columns in each row. Use offset to make a space between the 2
+            columns</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">dd</div>
+                <div class="col-md-5  offset-md-2">dd</div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">dd</div>
+                <div class="col-md-5 offset-md-2">dd</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3.</h2>
+        <p>Create a structure with 2 rows and 2 columns in each row. What happens if you don't have any container ?</p>
+        <div class="row">
+            <div class="col-md-6">dd</div>
+            <div class="col-md-6">dd</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">dd</div>
+            <div class="col-md-6">dd</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>4.</h2>
+        <p>Create a structure with a container, 2 columns. What happens if you don't have any row ?</p>
+        <div class="container">
+            <div class="col-md-6">dd</div>
+            <div class="col-md-6">dd</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>5.</h2>
+        <p>Create a structure with a container, 1 row and 3 columns in the row. Make it responsive so depending of the width
+            of the screen, the columns will be displayed differently. Write a code for 4 different type of screen.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">dd</div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">dd</div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">dd</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

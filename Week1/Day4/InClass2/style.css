@@ -1,0 +1,9 @@
+section div {
+    border: 1px solid black;
+}
+
+section {
+    padding: 40px;
+    margin-top: 10px;
+    background-color: rgb(255, 220, 163);
+}
