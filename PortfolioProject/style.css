@@ -1,0 +1,84 @@
+* {
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+:root {
+    font-size: 6.25%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16rem;
+    
+    color: rgb(42, 42, 42);
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 45px;
+    line-height: 1;
+}
+
+.fullscreen {
+    height: 100vh;
+    min-height: 500rem;
+    padding: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bg {
+    background-image: url(img/me.jpeg);
+    background-position: right top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.about {
+    max-width: 400rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30rem;
+}
+
+.text-accent {
+    letter-spacing: 0.2em;
+    color: blue;
+    transition: color 0.3s ease;
+}
+
+.text-accent:hover {
+    color: rgb(255, 1, 192);
+}
+
+
+.about__text {
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 24rem;
+    /* padding-left: 10rem; */
+    /* border-left: 10rem solid green; */
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    gap: 20rem;
+}
+
+.scroll-prompt {
+    opacity: 0.5;
+}
+
+.menu {
+    /* justify-content: flex-end; */
+    text-transform: lowercase;
+    position: fixed;
+    right: 60rem;
+    mix-blend-mode: overlay;
+}
