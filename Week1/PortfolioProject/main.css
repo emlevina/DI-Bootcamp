@@ -11,6 +11,12 @@ a {
     font-family: "Raleway";
 }
 
+.bg-overlay {
+    background-image: url(img/bg_light.jpeg);
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.7);
+}
+
 .bg-primary {
     background: orange !important;
 }
