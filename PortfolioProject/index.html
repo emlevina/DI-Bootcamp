@@ -26,19 +26,48 @@
                 <li>Hebrew</li>
                 <li>Russian</li>
             </ul>
-            <h1 class="name"><span class="text-accent">Ekaterina</span><br> Orlova</h1>
-            <p class="about__text">Mother, developer,<br> huge <span class="text-accent">Frozen</span> fan</p>
+            <div class="main-text">
+                <h1 class="name"><span class="text-accent">Ekaterina</span><br> Orlova</h1>
+                <p class="about__text">Mother, developer,<br> huge <span class="text-accent">Frozen</span> fan</p>
+            </div>
             <ul class="list">
                 <li>CSS/HTML</li>
                 <li>JavaScript</li>
                 <li>Node.js</li>
                 <li>React</li>
+                <li>Else</li>
+                <li>Else</li>
+                <li>Else</li>
             </ul>
         </div>
         <p class="scroll-prompt">Scroll to see the projects</p>
     </section>
     <section class="fullscreen">
+        <!-- A modal dialog containing a form -->
+<dialog id="favDialog">
+    <form method="dialog">
+      <p>
+        <label>Favorite animal:
+          <select>
+            <option value="default">Choose…</option>
+            <option>Brine shrimp</option>
+            <option>Red panda</option>
+            <option>Spider monkey</option>
+          </select>
+        </label>
+      </p>
+      <div>
+        <button value="cancel">Cancel</button>
+        <button id="confirmBtn" value="default">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+  <p>
+    <button id="showDialog">Show the dialog</button>
+  </p>
+  <output></output>
 
+  
         Your strongest skills and the coding languages you know.
 
         Your education or certificates, and make sure to show that the skills you learned are relevant to web
@@ -55,6 +84,9 @@
 
         Nice transition and animations (not mandatory).
     </section>
+
+
+    <script src="index.js"></script>
 </body>
 
 </html>
