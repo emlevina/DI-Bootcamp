@@ -1,0 +1,5 @@
+let nums = prompt('Insert numbers separated by comma')
+nums = nums.split(',')
+nums = nums.map(num => num = parseInt(num))
+console.log(nums)
+console.log(nums.reduce((a, b) => {return a + b;}, 0))
