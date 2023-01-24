@@ -1,6 +1,5 @@
-let sentence = 'My life is not so bad!';
+let sentence = 'My life is not sllslsl so bad!';
 
-regexp = /not.*bad/i
-sentence = sentence.replace(regexp, 'good')
+sentence = sentence.replace(/not.*bad/i, 'good')
 
 console.log(sentence);
