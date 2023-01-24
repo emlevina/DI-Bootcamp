@@ -1,4 +1,4 @@
-let sentence = 'My life is not sllslsl so bad!';
+let sentence = 'My life is not so bad!';
 
 sentence = sentence.replace(/not.*bad/i, 'good')
 
