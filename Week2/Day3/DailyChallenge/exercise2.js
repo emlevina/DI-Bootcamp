@@ -14,6 +14,8 @@ let numbersJoin = numbers.join('')
 // Add comments and console.log the result for each step, this will help you understand.
 // Requirement: Don’t copy paste solutions from Google
 
+
+//version 1
 for(let i = 1; i < numbers.length; i++){
     for(let j = 0; j < i; j++){
         if(numbers[i] > numbers[j]){
@@ -28,3 +30,18 @@ for(let i = 1; i < numbers.length; i++){
 }
 
 console.log(numbers)
+
+let moreNumbers = [5,0,9,1,7,4,2,6,3,8];
+
+// version 2
+for(let i = 0; i < moreNumbers.length; i++){
+    for(let j = 0; j < moreNumbers.length - 1 - i; j++){
+        if(moreNumbers[j] < moreNumbers[j+1]){
+            let temp = moreNumbers[j]
+            moreNumbers[j] = moreNumbers[j+1]
+            moreNumbers[j+1] = temp
+        }
+    }
+}
+
+console.log(moreNumbers)
