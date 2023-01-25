@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        button {
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="calc">
+        <div id="result" class="display">result!</div>
+        <div class="buttons">
+
+            <button class="btn-reset" type="button" name="button" onclick="reset();">RESET</button>
+            <button class="btn-operator" type="button" name="button" onclick="operator('+');">+</button>
+            <button class="btn-operator" type="button" name="button" onclick="operator('-');">-</button>
+            <button class="btn-operator btn-multiply" type="button" name="button" onclick="operator('*');">*</button>
+            <button class="btn-operator btn-divide" type="button" name="button" onclick="operator('/');">/</button>
+
+            <button type="button" name="button" onclick="number(1);">1</button>
+            <button type="button" name="button" onclick="number(2);">2</button>
+            <button type="button" name="button" onclick="number(3);">3</button>
+
+            <button type="button" name="button" onclick="number(4);">4</button>
+            <button type="button" name="button" onclick="number(5);">5</button>
+            <button type="button" name="button" onclick="number(6);">6</button>
+
+            <button type="button" name="button" onclick="number(7);">7</button>
+            <button type="button" name="button" onclick="number(8);">8</button>
+            <button type="button" name="button" onclick="number(9);">9</button>
+            <button class="btn-zero" type="button" name="button" onclick="number(0);">0</button>
+            <button class="btn-dot" type="button" name="button" onclick="dot();">.</button>
+
+            <button class="btn-equal" type="button" name="button" onclick="equal();">=</button>
+        </div>
+    </section>
+
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
