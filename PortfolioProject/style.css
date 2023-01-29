@@ -1,5 +1,7 @@
 * {
-    margin: 0;padding: 0;box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -9,11 +11,26 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 16rem;
-    
+
     color: rgb(42, 42, 42);
 }
 
-h1, h2, h3 {
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:active {
+    color: inherit
+}
+
+a:visited {
+    color: inherit
+}
+
+h1,
+h2,
+h3 {
     text-transform: uppercase;
 }
 
@@ -29,15 +46,21 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* background: linear-gradient(0deg,rgb(200,210,220), rgb(224,225,227), rgb(208,207,202)) */
 }
 
 .bg {
-    background-image: linear-gradient(#fff), url(img/me.jpeg);
-    /* background-image: url(img/me.jpeg); */
-    background-size: 50%, 50%;
-    background-position: right top;
-    /* background-size: contain; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 40%;
+    width: 50%;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 20%), url(img/me3.jpg);
+    background-position: 20% 75%;
     background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -3;
 }
 
 .about {
@@ -48,7 +71,7 @@ h1 {
     gap: 70rem;
 }
 
-.main-text {
+.flex-column-20 {
     display: flex;
     flex-direction: column;
     gap: 20rem;
@@ -64,7 +87,6 @@ h1 {
     color: rgb(255, 1, 192);
 }
 
-
 .about__text {
     line-height: 1.5;
     text-align: justify;
@@ -73,7 +95,7 @@ h1 {
     /* border-left: 10rem solid green; */
 }
 
-.list{
+.list {
     list-style: none;
     display: flex;
     gap: 20rem;
@@ -89,5 +111,137 @@ h1 {
     text-transform: lowercase;
     position: fixed;
     right: 60rem;
-    mix-blend-mode: overlay;
+    /* mix-blend-mode: overlay; */
+}
+
+.list a:hover {
+    color: blue;
+}
+
+
+/* form */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16rem;
+    width: 350rem;
+}
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    gap: 6rem;
+}
+
+/**
+* Add a transition to the label and input.
+*/
+label,
+.input {
+    font-size: 14rem;
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+.input {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 0;
+    cursor: text;
+    padding: 8rem;
+    background-color: rgb(244, 244, 244);
+}
+
+
+textarea.input {
+    height: 100rem;
+    resize: none;
+}
+
+.input:focus {
+    outline: 0;
+    border-bottom: 1px solid blue;
+}
+
+
+/**
+* Translate down and scale the label up to cover the placeholder,
+* when following an input (with placeholder-shown support).
+* Also make sure the label is only on one row, at max 2/3rds of the
+* field—to make sure it scales properly and doesn't wrap.
+*/
+.input:placeholder-shown+label {
+    cursor: text;
+    text-align: left;
+    max-width: 66.66%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: left bottom;
+    transform: translate(8rem, 30rem) scale(1);
+    color: rgb(86, 86, 86);
+}
+
+/**
+* By default, the placeholder should be transparent. Also, it should 
+* inherit the transition.
+*/
+::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
+
+/**
+* Show the placeholder when the input is focused.
+*/
+.input:focus::-webkit-input-placeholder {
+    opacity: 1;
+}
+
+
+/**
+* When the element is focused, remove the label transform.
+* Also, do this when the placeholder is _not_ shown, i.e. when 
+* there's something in the input at all.
+*/
+.input:not(:placeholder-shown)+label,
+.input:focus+label {
+    transform-origin: left bottom;
+    transform: translate(0) scale(0.8);
+    color: blue;
+    cursor: pointer;
+}
+
+.input:not(:focus)+label {
+    color: gray;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.btn {
+    border: 0;
+    padding: 8rem;
+    background: blue;
+    font-family: inherit;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.btn:hover{
+    background:rgb(255, 1, 192);
+}
+
+.btn:active{
+    background:rgb(255, 1, 192);
+}
+
+.btn:focus{
+    outline: none;
+    box-shadow: 0 0 5px rgb(91, 91, 91);
+    /* background:rgb(255, 1, 192); */
 }

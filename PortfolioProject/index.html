@@ -2,91 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Ekaterina's portfolio</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Ekaterina's portfolio</title>
 </head>
 
 <body>
-    <section class="fullscreen bg">
-        <nav class="nav">
-            <ul class="menu list">
-                <li>katya.leemi@gmail.com</li>
-                <li>Portfolio</li>
-            </ul>
-        </nav>
-        <div class="about">
-            <ul class="list">
-                <li>English</li>
-                <li>Hebrew</li>
-                <li>Russian</li>
-            </ul>
-            <div class="main-text">
-                <h1 class="name"><span class="text-accent">Ekaterina</span><br> Orlova</h1>
-                <p class="about__text">Mother, developer,<br> huge <span class="text-accent">Frozen</span> fan</p>
-            </div>
-            <ul class="list">
-                <li>CSS/HTML</li>
-                <li>JavaScript</li>
-                <li>Node.js</li>
-                <li>React</li>
-                <li>Else</li>
-                <li>Else</li>
-                <li>Else</li>
-            </ul>
-        </div>
-        <p class="scroll-prompt">Scroll to see the projects</p>
-    </section>
-    <section class="fullscreen">
-        <!-- A modal dialog containing a form -->
-<dialog id="favDialog">
-    <form method="dialog">
-      <p>
-        <label>Favorite animal:
-          <select>
-            <option value="default">Choose…</option>
-            <option>Brine shrimp</option>
-            <option>Red panda</option>
-            <option>Spider monkey</option>
-          </select>
-        </label>
-      </p>
-      <div>
-        <button value="cancel">Cancel</button>
-        <button id="confirmBtn" value="default">Confirm</button>
+  <section class="fullscreen" id="about">
+    <nav class="nav">
+      <ul class="menu list">
+        <li>katya.leemi@gmail.com</li>
+        <li>Portfolio</li>
+      </ul>
+    </nav>
+    <div class="about">
+      <ul class="list">
+        <li><a onclick="changeLanguage('eng')" id="english" href="#about">English</a></li>
+        <li><a onclick="changeLanguage('heb')" id="hebrew" href="#about">Hebrew</a></li>
+        <li><a onclick="changeLanguage('rus')" id="russian" href="#about">Russian</a></li>
+      </ul>
+      <div class="flex-column-20">
+        <h1 class="name"><span id="firstname" class="text-accent">Ekaterina</span><br>
+          <span id="surname">Orlova</span>
+        </h1>
+        <p class="about__text"><span id="desc1">Mother, developer,</span><br>
+          <span id="desc2">huge </span><span class="text-accent" id="frozen">Frozen</span><span id="desc3"> fan</span>
+        </p>
       </div>
-    </form>
-  </dialog>
-  <p>
-    <button id="showDialog">Show the dialog</button>
-  </p>
-  <output></output>
+      <ul class="list">
+        <li>CSS/HTML</li>
+        <li>JavaScript</li>
+        <li>Node.js</li>
+        <li>React</li>
+        <li>Else</li>
+        <li>Else</li>
+        <li>Else</li>
+      </ul>
 
-  
-        Your strongest skills and the coding languages you know.
-
-        Your education or certificates, and make sure to show that the skills you learned are relevant to web
-        development
-        and the jobs you desire.
-
-        Links to your Github and Linkedin profile.
-
-        A button to download your resume.
-
-        Projects showcasing your work.
-
-        A contact form.
-
-        Nice transition and animations (not mandatory).
-    </section>
+    </div>
+    <p class="scroll-prompt">Scroll to see the projects</p>
+    <div class="bg"></div>
+  </section>
+  <section class="fullscreen">
+    <!-- A modal dialog containing a form -->
 
 
-    <script src="index.js"></script>
+
+    <ul>
+      <li>Your strongest skills and the coding languages you know.</li>
+      <li>Your education or certificates, and make sure to show that the skills you learned are relevant to web
+        development and the jobs you desire.</li>
+      <li>Links to your Github and Linkedin profile.</li>
+      <li>A button to download your resume.</li>
+      <li>Projects showcasing your work.</li>
+      <li>A contact form.</li>
+      <li>Nice transition and animations (not mandatory).</li>
+    </ul>
+  </section>
+  <section class="fullscreen jc-center" id="form">
+    <div class="flex-column-20">
+      <h2>Form</h2>
+      <form action="" class="form">
+        <div class="field">
+          <input class="input" type="email" name="email" id="email" placeholder="me@domain.com" required>
+          <label for="email">Your e-mail *</label>
+        </div>
+        <div class="field">
+          <input class="input" type="text" name="name" id="name" placeholder="Ekaterina Orlova">
+          <label for="name">How can I call you?</label>
+        </div>
+        <div class="field">
+          <textarea class="input" name="textarea" id="textarea" placeholder="Your inquiry"></textarea>
+          <label for="textarea">And you want to tell me...</label>
+        </div>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </div>
+  </section>
+
+
+  <script src="index.js"></script>
 </body>
 
 </html>

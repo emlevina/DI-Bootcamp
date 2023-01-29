@@ -1,18 +1,41 @@
-const showButton = document.getElementById('showDialog');
-const favDialog = document.getElementById('favDialog');
-const outputBox = document.querySelector('output');
-const selectEl = favDialog.querySelector('select');
-const confirmBtn = favDialog.querySelector('#confirmBtn');
+function changeLanguage(lang) {
+  location.hash = lang;
+  location.reload();
+}
 
-// "Update details" button opens the <dialog> modally
-showButton.addEventListener('click', () => {
-    favDialog.showModal();
-});
-// "Favorite animal" input sets the value of the submit button
-selectEl.addEventListener('change', (e) => {
-  confirmBtn.value = selectEl.value;
-});
-// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-favDialog.addEventListener('close', () => {
-  outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
-});
+let language = {
+  eng: {
+    firstname: 'Ekaterina',
+    surname: 'Orlova',
+    desc1: 'Mother, developer,',
+    desc2: 'huge ',
+    frozen: 'Frozen',
+    desc3: ' fan'
+  },
+  rus: {
+    firstname: 'Екатерина',
+    surname: 'Орлова',
+    desc1: 'Мать, разработчица,', 
+    desc2: 'фанат ',
+    frozen: 'Холодного сердца',
+    desc3: ''
+  },
+  heb: {
+    firstname: 'יקטרינה',
+    surname: 'אורלוב',
+    desc1: 'אמא, מתכנתת,', 
+    desc2: 'מעריצה ענקית של',
+    frozen: 'פרוזן ',
+    desc3: ''
+  }
+};
+
+if (window.location.hash) {
+  let lang = window.location.hash.slice(1)
+  if (["#rus", "#heb", "#eng"].includes(window.location.hash)) {
+    for(id in language[lang]){
+      console.log(language[lang][id])
+      document.querySelector(`#${id}`).textContent = language[lang][id];
+    }
+  }
+}
