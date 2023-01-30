@@ -1,10 +1,5 @@
-let nounInput = document.getElementById('noun')
-let adjectiveInput = document.getElementById('adjective')
-let personInput = document.getElementById('person')
-let verbInput = document.getElementById('verb')
-let placeInput = document.getElementById('place')
-
 let allInputs = document.querySelectorAll('input')
+let [nounInput, adjectiveInput, personInput, verbInput, placeInput] = allInputs
 
 let output = document.getElementById('story')
 let shuffleButton = document.getElementById('shuffle')
@@ -19,7 +14,7 @@ const generateStory = (index) => {
         `${person} was a ${adjective} warlord from ${place}, whose objective was to ${verb} by wiping out half of all life at every level, as ${person} believed its massive population would inevitably use up the ${noun}'s entire supply of resources and perish`
     ]
 
-    if(index > stories.length - 1){
+    if (index > stories.length - 1) {
         index = index % stories.length
     }
 
