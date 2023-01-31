@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            display: flex;
+            align-items: center;justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 100vh;
+            align-content: flex-start;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root" class="container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
