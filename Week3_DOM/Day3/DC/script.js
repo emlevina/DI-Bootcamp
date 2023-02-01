@@ -9,13 +9,12 @@
 
 // Hint : Check out keycodes in Javascript or Regular Expressions
 
-let input = document.querySelector('input')
-let error = document.querySelector('.error')
+const input = document.querySelector('input')
+const error = document.querySelector('.error')
 error.style.display = 'none'
-error.classList.add('error')
 error.textContent = 'You tried to enter not a letter!'
 
-const validateInput = (e) => {
+function validateInput(e){
     let regex = /^[a-zA-Z]*$/i
     if(e.target.value.match(regex)){
         error.style.display = 'none'
@@ -25,4 +24,4 @@ const validateInput = (e) => {
     }
 }
 
-input.addEventListener('input', validateInput)
+input.addEventListener('keydown', validateInput)
