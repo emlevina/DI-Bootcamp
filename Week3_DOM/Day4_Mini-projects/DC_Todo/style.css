@@ -1,0 +1,97 @@
+* {
+    margin: 0;padding: 0;box-sizing: border-box;
+    font-family: sans-serif;
+}
+.done {
+    color: red;
+    text-decoration: line-through;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background: salmon;
+}
+
+.container {
+    margin: 50px;
+    min-width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.container form {
+    padding: 10px;
+    background: white;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.container form input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 10px;
+}
+
+.container form input:focus {
+    border: none;
+    border-bottom: 1px solid blue;
+    outline: none;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+}
+.container form button {
+
+    flex: 0 0 100px;
+    color: blue;
+}
+.container form button:hover {
+    color: blueviolet
+}
+
+.container h1 {
+    text-transform: uppercase;
+    color: white;
+}
+
+.bottom {
+
+    padding: 10px;
+    min-height: 100px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .listTasks, #placeholder{
+    font-weight: 100;
+    color: rgb(88, 88, 88);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.listTasks * {
+    display: flex;
+    gap: 10px;
+}
+
+.bottom button {
+    margin-top: auto;
+    align-self: flex-end;
+    color: red;
+}
