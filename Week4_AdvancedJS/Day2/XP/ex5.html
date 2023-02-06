@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        // You will use nested functions, to open a new juice bar.
+
+        // Part I:
+        // The outer function named makeJuice receives 1 argument: the size of the beverage the client wants - small, medium or large.
+        const root = document.getElementById('root')
+        function makeJuice(size){
+            // In the makeJuice function, create an empty array named ingredients.
+            const ingredients = []
+            // The inner function named addIngredients receives 3 ingredients, and displays on the DOM a sentence like The client wants a <size drink> juice, containing <first ingredient>, <second ingredient>, <third ingredient>".
+
+            // The addIngredients function should now receive 3 ingredients, and push them into the ingredients array.
+            function addIngredients(ing1, ing2, ing3){
+                ingredients.push(ing1, ing2, ing3)
+            }
+            // Create a new inner function named displayJuice that displays on the DOM a sentence like The client wants a <size drink> juice, containing <first ingredient>, <second ingredient>, <third ingredient>". Use the forEach method.
+            function displayJuice(){
+                let list = ''
+                ingredients.forEach(ing => list += `, ${ing}`)
+                root.append(`The client wants a ${size} juice, containing ${list}`)
+            }
+            // The client wants 6 ingredients in his juice, therefore, invoke the addIngredients function TWICE. Then invoke once the displayJuice function. Finally, invoke the makeJuice function in the global scope.
+            addIngredients('apple', 'banana', 'strawberry')
+            addIngredients('tomato', 'basilic', 'bubblegum')
+            displayJuice()
+        }
+
+        // Then invoke the outer function in the global scope.
+        makeJuice('small')
+
+        
+    </script>
+</body>
+</html>

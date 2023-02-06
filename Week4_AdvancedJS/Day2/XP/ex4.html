@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        nav {
+            padding: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- // Create a Bootstrap Navbar in your HTML file. -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+        </div>
+    </nav>
+    <script>
+
+        // In your js file, create a self invoking funtion that takes 1 argument: the name of the user that just signed in.
+        // The function should add a div in the nabvar, displaying the name of the user and his profile picture.
+        (name => {
+            const nav = document.querySelector('.navbar .container-fluid')
+            const div = document.createElement('div')
+            const pic = document.createElement('img')
+            pic.setAttribute('src', `${name.toLowerCase()}.jpeg`)
+            div.append(`hi, ${name}`)
+            nav.append(pic, div)
+        })('Gosling')
+    </script>
+</body>
+
+</html>
