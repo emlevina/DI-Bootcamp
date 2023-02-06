@@ -1,0 +1,2 @@
+onsole.log(array)
+    // console
