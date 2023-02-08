@@ -24,10 +24,12 @@ console.log(getCarHonda(inventory))
 // Create a function sortCarInventoryByYear(carInventory) that takes a single parameter. carInventory‘s value is an array which is an inventory of cars (see the array of objects below)
 // the function should return an inventory that is sorted by car_year, ascending.
 const sortCarInventoryByYear = (carInventory) => {
-    return carInventory.sort((a, b) => a.car_year - b.car_year)
+    const carInventory2 = [...carInventory]
+    return carInventory2.sort((a, b) => a.car_year - b.car_year)
 }
 
 console.log(sortCarInventoryByYear(inventory));
+console.log(inventory);
 // The output should be
 
 // [
