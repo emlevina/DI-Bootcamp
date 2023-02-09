@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,42 +8,46 @@
     <link rel="stylesheet" href="style.css">
     <title>Tic tac toe</title>
 </head>
+
 <body>
     <div class="container" id="root">
         <div class="prompt">
-            <p>Choose cross or zero</p>
-            <div class="btn-group">
-                <button id="zero" value="o">0</button>
-                <button id="cross" value="x">X</button>
+            <div class="prompt-part">
+                <p class="text-prompt">Choose difficulty mode</p>
+                <p class="users-choice">Your difficulty choice</p>
+                <form class="radio-group">
+                    <input type="radio" id="easy" value="easy" name="difficulty" checked>
+                    <label for="easy">Easy</label>
+                    <input type="radio" id="hard" value="hard" name="difficulty">
+                    <label for="hard">Hard</label>
+                </form>
             </div>
-            <p>Choose difficulty mode</p>
-            <form class="radio-group">
-                <input type="radio" id="easy" value="easy" name="difficulty" checked>
-                <label for="easy">Easy</label>
-                <input type="radio" id="hard" value="hard" name="difficulty">
-                <label for="hard">Hard</label>
-            </form>
+            <div class="prompt-part">
+                <p class="text-prompt">Choose cross or zero</p>
+                <p class="users-choice">Your symbol choice</p>
+                <div class="btn-group">
+                    <button id="zero" value="o">o</button>
+                    <button id="cross" value="x">X</button>
+                </div>
+            </div>
         </div>
         <div class="field">
-            <div class="row">
-                <div class="box" id="1"></div>
-                <div class="box" id="2"></div>
-                <div class="box" id="3"></div>
-            </div>
-            <div class="row">
-                <div class="box" id="4"></div>
-                <div class="box" id="5"></div>
-                <div class="box" id="6"></div>
-            </div>
-            <div class="row">
-                <div class="box" id="7"></div>
-                <div class="box" id="8"></div>
-                <div class="box" id="9"></div>
-            </div>
+            <div class="box" id="1"></div>
+            <div class="box" id="2"></div>
+            <div class="box" id="3"></div>
+
+            <div class="box" id="4"></div>
+            <div class="box" id="5"></div>
+            <div class="box" id="6"></div>
+
+            <div class="box" id="7"></div>
+            <div class="box" id="8"></div>
+            <div class="box" id="9"></div>
         </div>
-        <p id="winmsg"></p>
+        <p id="winmsg">Placeholder</p>
         <button id="restart">Restart</button>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
