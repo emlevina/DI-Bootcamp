@@ -24,49 +24,35 @@ let userChoice
 let compChoice
 let computerBrain
 
-/// осталось: чей первый ход? +
-// для сложной логики - учитывать куда шагнул пользователь и блокировать его
-// если первый шаг, то правильный первый шаг
-// если выбирать из выигрышных то учитывать какие уже у компа
-// выбрать режим +
-
 const compPlayEasy = () => {
     console.log('i am not smart')
     return availableIds[Math.floor(Math.random() * availableIds.length)]
 }
 
 const compPlayHard = () => {
-    console.log('i am smart')
-    console.log(availableIds)
-
-    // check available combos
     const userPositions = getPositions(userChoice)
-    const filteredCombo = winCombos.filter(combo => combo.some(id => !userPositions.includes(id)))
+    const compPositions = getPositions(compChoice)
 
-    // need to check if I'm able to do any combo 
+    if (!compPositions.length && !userPositions.length) {
+        return 1
+    } else if(!compPositions.length){
+        return userPositions[0] === 5 ? 1 : 5
+    } else if (compPositions.length == 1 && userPositions.length === 1) {
+        return [2, 3, 6].includes(userPositions[0]) ? 7 : 3
+    } else {
+        const closeToWin = (positions) => {
+            return  winCombos.filter(combo => {
+                let counter = 0
+                combo.forEach(id => positions.includes(id) ? counter++ : "")
+                return counter === 2
+            }).flat().filter(id => availableIds.includes(id))[0]
+        }
 
-    // 
-    const reduced = filteredCombo.reduce((acc, combo) => {
-        // console.log('combo: ', combo)
-        combo.forEach(id => {
-            // console.log('id: ', id)
-            if (availableIds.includes(id)) {
-                acc[id] ? acc[id]++ : acc[id] = 1
-                // console.log('acc: ',acc)
-            }
-        })
-        return acc
-    }, {})
-    // const reducedReduced = Object.entries(reduced).reduce((acc, curr) => {
-    //     return curr[1] > acc[1] ? curr : acc
-    // }, [0, 0])[0]
+        const userCloseToWin = closeToWin(userPositions)
+        const compCloseToWin = closeToWin(compPositions)
 
-    // const userPossibleCombo = 
-
-    const reducedReduced = Math.max(Object.values(reduced))
-
-    console.log(reducedReduced);
-    return +reducedReduced
+        return compCloseToWin ? compCloseToWin : userCloseToWin ? userCloseToWin : availableIds[Math.floor(Math.random() * availableIds.length)]
+    }
 }
 
 const restart = () => {
@@ -95,25 +81,26 @@ const winCheck = (player) => {
     for (let combo of winCombos) {
         if (combo.every(id => positions.includes(id))) {
             finishGame(player)
-            return true
         }
     }
-    return false
+    if(!availableIds.length){
+        finishGame()
+    }
 }
 
 const oneMove = (player, e = 0) => {
     const boxId = player === 'user' ? +e.target.id : computerBrain()
     const box = document.getElementById(boxId)
     box.innerText = player === 'user' ? userChoice : compChoice
-    console.log(`here I need to remove ${boxId} from the list`)
     availableIds = availableIds.filter(num => num !== boxId)
     box.removeEventListener('click', playRound)
 
-    return winCheck(player)
+    winCheck(player)
 }
 
 const playRound = (e) => {
-    oneMove('user', e) ? '' : !availableIds.length ? finishGame() : oneMove('comp')
+    oneMove('user', e)
+    oneMove('comp')
 }
 
 const play = () => {
