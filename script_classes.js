@@ -97,11 +97,16 @@ class Player {
                     return counter === 2
                 }).flat().filter(id => availableIds.includes(id))[0]
             }
+            console.log(compPositions)
+            const nextSecond = winCombos.filter(combo => {
+                return combo.some(id => compPositions.includes(id)) && combo.every(id => !userPositions.includes(id))
+            }).flat().filter((id, i, arr) => availableIds.includes(id) && arr.indexOf(id) != i)
 
+            // console.log(nextSecond)
             const userCloseToWin = closeToWin(userPositions)
             const compCloseToWin = closeToWin(compPositions)
 
-            return compCloseToWin ? compCloseToWin : userCloseToWin ? userCloseToWin : availableIds[Math.floor(Math.random() * availableIds.length)]
+            return compCloseToWin ? compCloseToWin : userCloseToWin ? userCloseToWin : nextSecond[Math.floor(Math.random() * nextSecond.length)]
         }
     }
 }
@@ -122,6 +127,8 @@ class Game {
     restart = () => {
         allBoxes.forEach(box => box.innerHTML = '')
         field.addEventListener('click', this.showError)
+        btnZero.addEventListener('click', this.makeChoice)
+        btnCross.addEventListener('click', this.makeChoice)
         winmsg.style.visibility = 'hidden'
         btnRestart.style.visibility = 'hidden'
         this.togglePromptsView(false)
@@ -180,6 +187,8 @@ class Game {
 
     makeChoice = (e) => {
         field.removeEventListener('click', this.showError)
+        btnZero.removeEventListener('click', this.makeChoice)
+        btnCross.removeEventListener('click', this.makeChoice)
         winmsg.style.visibility = 'hidden'
 
         this.user = new Player('user')
