@@ -131,16 +131,16 @@ const robots = [
             return error
         }
 
-        appendToRoot = () => {
-            this.root.append(this.nav, this.section, this.error)
-            this.createCards()
-        }
-
-        createCards = () => {
+        appendCards = () => {
             robots.forEach(robot => {
                 let newRobot = new Robot(robot)
                 this.section.append(newRobot.createCard())
             })
+        }
+
+        appendToRoot = () => {
+            this.root.append(this.nav, this.section, this.error)
+            this.appendCards()
         }
 
         onSearch = (e) => {
