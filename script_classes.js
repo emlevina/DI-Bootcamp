@@ -136,7 +136,7 @@ class Game {
 
     finishGame = (player = '') => {
         allBoxes.forEach(box => box.removeEventListener('click', (e) => playRound(e, user, comp)))
-        winmsg.innerText = player ? `${player.toUpperCase()} won!` : 'nobody won'
+        winmsg.innerText = player ? `${player.toUpperCase()} won!` : 'Draw'
         winmsg.style.visibility = 'visible'
         btnRestart.style.visibility = 'visible'
     }
