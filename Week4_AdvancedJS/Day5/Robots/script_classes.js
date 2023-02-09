@@ -165,4 +165,5 @@ const robots = [
 
     const newGame = new Game()
     newGame.appendToRoot()
+    
 })()
