@@ -87,9 +87,11 @@ class Player {
             return 1
         } else if (!compPositions.length) {
             return userPositions[0] === 5 ? 1 : 5
-        } else if (compPositions.length == 1 && userPositions.length === 1) {
+        } 
+        else if (compPositions.length == 1 && userPositions.length === 1) {
             return [2, 3, 6].includes(userPositions[0]) ? 7 : 3
-        } else {
+        } 
+        else {
             const closeToWin = (positions) => {
                 return winCombos.filter(combo => {
                     let counter = 0
