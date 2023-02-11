@@ -102,9 +102,11 @@ class Computer extends Player {
 
             const nextDouble = (positions, player) => {
                 const oppositePosiitons = player === 'comp' ? userPositions : compPositions
-                return winCombos.filter(combo => {
+                const returnArr = winCombos.filter(combo => {
                     return combo.some(id => positions.includes(id)) && combo.every(id => !oppositePosiitons.includes(id))
-                }).flat().filter((id, i, arr) => availableIds.includes(id) && arr.indexOf(id) !== i)[0]
+                }).flat().filter((id, i, arr) => availableIds.includes(id) && arr.indexOf(id) !== i)
+
+                return returnArr.length === 1 ? returnArr[0] : availableIds.find(id => !returnArr.includes(id))
             }
 
             const nextSimple = () => {
@@ -113,7 +115,7 @@ class Computer extends Player {
                 }).flat().filter(id => availableIds.includes(id))
 
                 const userBlocking = winCombos.filter(combo => {
-                    return combo.some(id => userPositions.includes(id)) && combo.every(id => compPositions.includes(id))
+                    return combo.some(id => userPositions.includes(id)) && combo.every(id => !compPositions.includes(id))
                 }).flat()
 
                 return winCombos
@@ -127,9 +129,8 @@ class Computer extends Player {
                         return acc
                     }, [{}, 0])[1]
             }
-
-            const randomId = () => availableIds[Math.floor(Math.random() * availableIds.length)]
-            return closeToWin(compPositions) || closeToWin(userPositions) || nextDouble(compPositions, 'comp') || nextDouble(userPositions, 'user') || nextSimple() || randomId()
+            
+            return closeToWin(compPositions) || closeToWin(userPositions) || nextDouble(compPositions, 'comp') || nextDouble(userPositions, 'user') || nextSimple() || this.compPlayEasy()
         }
     }
 }
