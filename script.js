@@ -102,9 +102,11 @@ class Computer extends Player {
 
             const nextDouble = (positions, player) => {
                 const oppositePosiitons = player === 'comp' ? userPositions : compPositions
-                return winCombos.filter(combo => {
+                const returnArr = winCombos.filter(combo => {
                     return combo.some(id => positions.includes(id)) && combo.every(id => !oppositePosiitons.includes(id))
-                }).flat().filter((id, i, arr) => availableIds.includes(id) && arr.indexOf(id) !== i)[0]
+                }).flat().filter((id, i, arr) => availableIds.includes(id) && arr.indexOf(id) !== i)
+
+                return returnArr.length === 1 ? returnArr[0] : availableIds.find(id => !returnArr.includes(id))
             }
 
             const nextSimple = () => {
