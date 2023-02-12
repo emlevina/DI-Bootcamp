@@ -10,7 +10,7 @@ const translations = {
   rus: {
     firstname: 'Екатерина',
     surname: 'Орлова',
-    desc1: 'Мать, разработчица, ',
+    desc1: 'Мать, разработчица, \n',
     desc2: 'фанат ',
     frozen: 'Холодного сердца',
     desc3: ''
@@ -42,7 +42,9 @@ lang = translations[lang] ? lang : 'eng'
 
 const createMain = () => {
   const h1 = document.createElement('h1')
+  h1.classList.add('name')
   const p = document.createElement('p')
+  p.classList.add('about__text')
 
   for (let id in translations['eng']) {
     const el = document.createElement('span')

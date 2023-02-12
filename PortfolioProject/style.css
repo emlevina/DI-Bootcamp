@@ -94,6 +94,7 @@ h1 {
     line-height: 1.5;
     text-align: justify;
     font-size: 24rem;
+    max-width: 350rem;
     /* padding-left: 10rem; */
     /* border-left: 10rem solid green; */
 }
