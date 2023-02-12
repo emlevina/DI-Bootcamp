@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Create a form with two fields (name, last name) and a submit button.
+    When you click the Send button, retrieve the data from the inputs, and append it on the DOM as a JSON string.
+    The output should be: -->
+
+    <form action="">
+        <input type="text" name="fname">
+        <input type="text" name="lname">
+        <input type="submit" value="send">
+    </form>
+    <div id="output"></div>
+    <script>
+        const output = document.getElementById('output')
+        const onSubmit = (e) => {
+            e.preventDefault()
+            const name = e.target.elements.fname
+            const lastname = e.target.elements.lname
+            const outputVal = JSON.stringify({name: name.value, lastname: lastname.value})
+            output.append(outputVal)
+            lastname.value = ''
+            name.value = ''
+            name.focus()
+        }
+        document.addEventListener('submit', onSubmit)
+    </script>
+</body>
+</html> 
