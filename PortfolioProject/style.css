@@ -37,7 +37,7 @@ h3 {
 h1 {
     font-size: 45px;
     line-height: 1;
-    max-width: 500rem;
+    /* max-width: 500rem; */
     display: flex;
     flex-direction: column;
 }
