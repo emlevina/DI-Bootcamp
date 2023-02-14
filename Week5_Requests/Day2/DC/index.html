@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="search" id="">
+        <button type="submit">Search</button>
+    </form>
+    <div id="output"></div>
+    <button id="deleteAll">Delete All</button>
+    <script>
+        const input = document.forms[0].elements.search
+        const deleteAll = document.getElementById('deleteAll')
+
+        const onSubmit = (e) => {
+            e.preventDefault()
+            let url = `https://api.giphy.com/v1/gifs/search?q=${input.value}&limit=1&offset=${Math.floor(Math.random()*1000)}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
+
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                let data = JSON.parse(xhr.responseText)
+                const iframe = document.createElement('iframe')
+                iframe.setAttribute('id', data.data[0].id)
+                iframe.setAttribute('src', data.data[0].embed_url)
+                iframe.setAttribute('frameBorder', 0)
+                const button = document.createElement('button')
+                button.append('Delete')
+                button.setAttribute('data-gif-id', data.data[0].id)
+                button.addEventListener('click', (e) => {
+                    document.getElementById(e.target.dataset.gifId).remove()
+                    e.target.remove()
+                })
+                const output = document.getElementById('output')
+                
+                output.append(iframe, button)
+            }
+            xhr.open('GET', url, true);
+            xhr.send()
+        }
+
+
+
+        deleteAll.addEventListener('click', ()=> {output.innerHTML = ''})
+        document.addEventListener('submit', onSubmit)
+    </script>
+</body>
+
+</html>
