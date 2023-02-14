@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #output {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="search" id="">
+        <button type="submit">Search</button>
+    </form>
+    <div id="output"></div>
+    <button id="deleteAll">Delete All</button>
+    <script>
+        const input = document.forms[0].elements.search
+        const deleteAll = document.getElementById('deleteAll')
+
+        const onSubmit = (e) => {
+            e.preventDefault()
+            let url = `https://api.giphy.com/v1/gifs/search?q=${input.value}&limit=10&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
+
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                let data = JSON.parse(xhr.responseText)
+                const output = document.getElementById('output')
+                
+                data.data.forEach(item => {
+                    const iframe = document.createElement('iframe')
+                    iframe.setAttribute('id', item.id)
+                    iframe.setAttribute('src', item.embed_url)
+                    iframe.setAttribute('frameBorder', 0)
+                    output.append(iframe)
+                })
+
+            }
+            xhr.open('GET', url, true);
+            xhr.send()
+        }
+
+
+
+        deleteAll.addEventListener('click', () => { output.innerHTML = '' })
+        document.addEventListener('submit', onSubmit)
+    </script>
+</body>
+
+</html>
