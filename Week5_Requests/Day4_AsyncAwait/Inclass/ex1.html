@@ -11,21 +11,17 @@
 <body>
     <div id="output"></div>
     <script>
-        const getRandomGif = async () => {
-            let url = `https://api.giphy.com/v1/gifs/random?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
+        let url = `https://api.giphy.com/v1/gifs/random?api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
 
-            const res = await fetch(url)
-            const data = await res.json()
-
+        fetch(url).then(res => res.json()).then(res => {
             const iframe = document.createElement('iframe')
-            iframe.setAttribute('src', data.data.embed_url)
+            iframe.setAttribute('src', res.data.embed_url)
             iframe.setAttribute('frameBorder', 0)
             const output = document.getElementById('output')
             output.append(iframe)
-        }
+        })
 
-        getRandomGif()
-
+        
 
     </script>
 </body>

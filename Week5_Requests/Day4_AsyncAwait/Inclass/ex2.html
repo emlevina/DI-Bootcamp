@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="output"></div>
+    <script>
+
+        const getWord = async () => {
+            const res = await fetch('http://random-word-api.herokuapp.com/word?number=1')
+            const data = await res.json()
+            getGif(data[0])
+        }
+
+        const getGif = async (word) => {
+            console.log(word)
+            let url = `https://api.giphy.com/v1/gifs/random?tag=${word}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
+            
+            try {
+                console.log('try')
+                const res = await fetch(url)
+                
+                const data = await res.json()
+                console.log(data)
+                if(data.data.length === 0){
+                    throw new Error()
+                } else {
+                    appendGif(data.data.embed_url)
+                }
+                
+            } catch (error) {
+                console.log('catching')
+                const res = await fetch('https://api.giphy.com/v1/gifs/random?tag=error404&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My')
+                const data = await res.json()
+                appendGif(data.data.embed_url)
+            }
+        }
+
+        const appendGif = (src) => {
+            const iframe = document.createElement('iframe')
+            iframe.setAttribute('src', src)
+            iframe.setAttribute('frameBorder', 0)
+            const output = document.getElementById('output')
+            output.append(iframe)
+        }
+
+        getWord()
+
+
+    </script>
+</body>
+
+</html>
