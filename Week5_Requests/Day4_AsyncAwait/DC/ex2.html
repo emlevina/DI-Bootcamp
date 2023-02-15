@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- In the HTML file, create a form with 4 inputs:
+the latitude and longitude of the first city
+the latitude and longitude of the second city -->
+    <form>
+        <p>first city</p>
+        <input type="text" name="lat1" id="lat1" placeholder="latitude" required>
+        <input type="text" name="long1" id="long1" placeholder="longitude" required>
+        <div id="output1">&nbsp;</div>
+        <p>second city</p>
+        <input type="text" name="lat2" id="lat2" placeholder="latitude" required>
+        <input type="text" name="long2" id="long2" placeholder="longitude" required>
+        <div id="output2">&nbsp;</div>
+        <button>Check</button>
+    </form>
+    <script>
+        const returnSunrise = (e) => {
+            const lat1 = document.getElementById('lat1')
+            const long1 = document.getElementById('long1')
+            const lat2 = document.getElementById('lat2')
+            const long2 = document.getElementById('long2')
+            Promise.all([getSunrise(lat1.value, long1.value), getSunrise(lat2.value, long2.value)]).then(res => {
+                res.map((finres, i) => {
+                    const ouput = document.getElementById(`output${i + 1}`)
+                    ouput.textContent = finres
+                })
+            })
+        }
+
+        const getSunrise = async (lat, long) => {
+            try {
+                let url = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${long}`
+                const res = await fetch(url)
+                const data = await res.json()
+                if(data.results.sunrise){
+                    return data.results.sunrise
+                } else {
+                    throw new Error()
+                }
+                
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        const onSubmit = (e) => {
+            e.preventDefault()
+            returnSunrise()
+        }        
+
+        document.addEventListener('submit', onSubmit)
+    </script>
+</body>
+
+</html>
