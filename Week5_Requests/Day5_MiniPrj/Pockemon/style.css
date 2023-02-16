@@ -112,9 +112,55 @@ html {
 
 #logo {
     width: 200px;
-    height: 100px;
+    height: 150px;
     position: absolute;
     background: url(./logo_pok.png);
     background-size: contain;
+    background-repeat: no-repeat;
     left: -100px;
+}
+
+#loader {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    line-height: 1;
+    right: 305px;
+    bottom: 48px;
+    width: 150px;
+    height: 100px;
+    translate: 50%;
+}
+
+#loader::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: green;
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+#error {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    right: 305px;
+    bottom: 48px;
+    width: 150px;
+    height: 100px;
+    translate: 50%;
 }

@@ -1,3 +1,7 @@
+const openedPockemons = []
+let activePockemon = 0
+const errorEl = document.getElementById('error')
+
 const fetchData = async () => {
     const num = Math.random() * 1008 | 0
     const url = `https://pokeapi.co/api/v2/pokemon/${num}`
@@ -17,19 +21,21 @@ const fetchData = async () => {
         }
     } catch (error) {
         console.log(error)
+        errorEl.style.display = 'flex'
     }
 
 }
 
-
-const openedPockemons = []
-let activePockemon = 0
-
 const openNewPockemon = async (e) => {
     e.preventDefault()
+    errorEl.style.display = 'none'
+    const loader = document.getElementById('loader')
+    root.innerHTML = ''
+    loader.style.display = 'flex'
     const pockemon = await fetchData()
     openedPockemons.push(pockemon)
     activePockemon = openedPockemons.length - 1
+    loader.style.display = 'none'
     displayPockemon(pockemon)
 }
 
