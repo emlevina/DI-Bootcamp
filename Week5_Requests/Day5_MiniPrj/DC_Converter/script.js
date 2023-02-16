@@ -74,6 +74,7 @@ const convert = async (e) => {
     e.preventDefault()
     const {from, to, amount} = retrieveValues()
     const output = document.getElementById('output')
+    output.innerHTML = ''
     output.append(createLoader())
     const result = await sendRequest(to, from, amount)
     const h2 = document.createElement('h2')
@@ -84,4 +85,19 @@ const convert = async (e) => {
 
 renderOptions()
 
+
+const switchCurr = (e) => {
+    const form = document.forms[0].elements
+    const {from, to, amount} = retrieveValues()
+    const fromField = form.from
+    const toField = form.to
+    fromField.value = to
+    toField.value = from
+    if(amount){
+        convert(e)
+    }
+}
+
+const switchBtn = document.getElementById('switchBtn')
 document.addEventListener('submit', convert)
+switchBtn.addEventListener('click', switchCurr)
