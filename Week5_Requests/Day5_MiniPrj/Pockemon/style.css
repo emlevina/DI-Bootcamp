@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+    font-size: 12px;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pockedex {
+    background-image: url(./pokedex.png);
+    background-size: contain;
+    background-position: center;
+    min-width: 600px;
+    height: 400px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#root {
+    position: absolute;
+    right: 305px;
+    bottom: 48px;
+    width: 150px;
+    height: 100px;
+    translate: 50%;
+    /* border: 1px solid yellow; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#root h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#display {
+    position: absolute;
+    right: 305px;
+    top: 48px;
+    width: 150px;
+    height: 100px;
+    translate: 50%;
+    /* border: 1px solid yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#display img{
+    width: 100px;
+}
+
+#openBtn {
+    position: absolute;
+    right: 96px;
+    bottom: 18px;
+    border-radius: 100%;
+    background: transparent;
+    border: none;
+    translate: 50% -50%;
+    width: 80px;
+    height: 80px;
+}
+
+#openBtn:hover {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+#leftBtn {
+    position: absolute;
+    left: 84px;
+    bottom: 84px;
+    background: transparent;
+    border: none;
+    translate: 50% -50%;
+    width: 40px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#rightBtn {
+    position: absolute;
+    left: 118px;
+    bottom: 84px;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    translate: 50% -50%;
+    width: 40px;
+}
+
+#prompt {
+    position: absolute;
+    left: 500px;
+    top: 84px;
+    border: none;
+    /* translate: -50% -50%; */
+    min-width: 250px;
+}
+
+#logo {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    background: url(./logo_pok.png);
+    background-size: contain;
+    left: -100px;
+}
