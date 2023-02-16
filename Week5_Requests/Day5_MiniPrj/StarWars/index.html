@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarWars AJAX</title>
+    <style>
+        body {
+            background: #000;
+            color: white;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        #output {
+            height: 300px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid yellow;
+            border-radius: 5%;
+        }
+
+        .loader {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            line-height: 1;
+        }
+
+        .loader::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border: 1px solid white;
+            animation: spin 2s infinite;
+        }
+
+        button {
+            border: 2px solid yellow;
+            color: yellow;
+            background: transparent;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        @keyframes spin {
+            0% {
+                rotate: 0deg;
+            }
+
+            100% {
+                rotate: 360deg;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./Star_Wars_Logo.png" alt="logo" class="logo">
+        <div id="output">Click the button to find somebody!</div>
+        <button id="findBtn">Find someone</button>
+    </div>
+
+    <script>
+        const output = document.getElementById('output')
+        const btn = document.getElementById('findBtn')
+
+        const mapTitles = {
+            name: "Name",
+            height: "Height",
+            gender: "Gender",
+            homeWorldName: "Home World",
+            birth_year: "Year of birth"
+        }
+
+        const retrieveSomeone = (e) => {
+            e.preventDefault()
+            output.innerHTML = ''
+            const p = document.createElement('p')
+            p.classList.add('loader')
+            p.append('searching')
+            output.append(p)
+
+            const randomNum = Math.random() * 83 | 0
+            let url = `https://www.swapi.tech/api/people/${randomNum}`
+
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                let data = JSON.parse(xhr.responseText)
+                let { name, height, gender, homeworld, birth_year } = data.result.properties
+                retrievePlanet(homeworld, { name, height, gender, birth_year })
+            }
+            xhr.open('GET', url, true);
+            xhr.send()
+            xhr.onerror = renderError()
+        }
+
+        const renderError = () => {
+            const p = document.createElement('p')
+            p.append('Oh no!!')
+            output.append(p)
+        }
+
+        const retrievePlanet = (url, user) => {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                let data = JSON.parse(xhr.responseText)
+                let homeWorldName = data.result.properties.name
+                user = { ...user, homeWorldName }
+                appendToDOM(user)
+            }
+
+            xhr.open('GET', url, true);
+            xhr.send()
+            xhr.onerror = renderError()
+        }
+
+        const appendToDOM = (user) => {
+            output.innerHTML = ''
+            const div = document.createElement('div')
+            for (let key in user) {
+                const p = document.createElement('p')
+                p.setAttribute('id', key)
+                p.append(`${mapTitles[key]}: ${user[key]}`)
+                div.append(p)
+            }
+            output.append(div)
+        }
+
+        btn.addEventListener('click', retrieveSomeone)
+    </script>
+</body>
+
+</html>
