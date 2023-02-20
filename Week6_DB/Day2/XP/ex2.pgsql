@@ -20,19 +20,21 @@ SELECT film_id, title, description, length, rental_rate FROM film WHERE title = 
 SELECT film_id, title, description, length, rental_rate 
 FROM film 
 WHERE title ILIKE 'Th%';
+
+
 -- Write a query which will find the 10 cheapest movies.
-SELECT film_id, title 
+SELECT film_id, title,rental_rate 
 FROM film 
-ORDER BY replacement_cost
+ORDER BY rental_rate, film_id ASC
 FETCH FIRST (10) ROW ONLY;
 
 -- Not satisfied with the results. Write a query which will find the next 10 cheapest movies.
 -- Bonus: Try to not use LIMIT.
-SELECT film_id, title 
+SELECT film_id, title, rental_rate
 FROM film 
-ORDER BY replacement_cost
-OFFSET (10) ROWS 
-FETCH NEXT (10) ROWS ONLY;
+ORDER BY rental_rate, film_id ASC
+OFFSET 10 
+FETCH next (10) ROWS ONLY;
 
 
 -- Write a query which will join the data in the customer table and the payment table. You want to get the first name and last name from the curstomer table, as well as the amount and the date of every payment made by a customer, ordered by their id (from 1 to…).
