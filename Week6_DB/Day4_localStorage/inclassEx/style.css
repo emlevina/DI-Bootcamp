@@ -1,0 +1,45 @@
+* {
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+body {
+    padding: 20px 50px;
+}
+
+img {
+    margin-top: auto;
+    width: 100%;
+}
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.product {
+    border: 1px solid gray;
+    padding: 20px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+} 
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+ul li {
+    border: 1px solid lightgray;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 5px 10px;
+}
