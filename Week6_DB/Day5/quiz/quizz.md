@@ -4,14 +4,14 @@
 
 1. How to access the second element of the array `const nums = [3, 7, 10]`
 
-A: nums[1]
+  A: nums[1]
 
 2. For the code below, what does `arrNums.splice(2, 0)` return?
 
     ```javascript
     const arrNums = [1, 2, 3, 4, 5];
     ```
-A: []
+  A: []
 
 3. What is the result of the following code :
 
@@ -22,7 +22,7 @@ A: []
     const favoriteNumbers = [4, 5, 6, ...bestNumbers, ...secondBestNumbers];
     console.log(favoriteNumbers)
     ```
-A: [4,5,6,1,2,3,7,8,9]
+  A: [4,5,6,1,2,3,7,8,9]
 
 4. What does the following code print to the console?
 
@@ -38,7 +38,7 @@ A: [4,5,6,1,2,3,7,8,9]
    football.clubs.spain = "Real Madrid";
    console.log(football.clubs.spain);
    ```
-A: "Real Madrid"
+  A: "Real Madrid"
 
    
 5. What does the following code print to the console?
@@ -57,11 +57,14 @@ A: "Real Madrid"
    football.clubs[myteam] = "France national football team";
    console.log(football.clubs);
    ```   
-A:  {
+  A: 
+  ```javascript
+    { 
        france : "Paris Saint-Germain",
        spain : "Atlético Madrid",
        bestTeam : "France national football team"
      }
+  ``` 
 
 6. Can we define the function as follows? 
     If yes, 
@@ -79,7 +82,7 @@ A:  {
        return a*b;
     }
     ```
-A: yes. It's a function expression. The right part is an anonymous function. Invoke x()
+  A: yes. It's a function expression. The right part is an anonymous function. Invoke x()
 
 7. Variables created **without** any keyword, are always global, even if they are created inside a function ? Yes or No and explain
 
@@ -88,7 +91,7 @@ A: yes. It's a function expression. The right part is an anonymous function. Inv
     	a = 5;
     }
     ```
-A: Yes. Javascript at first searches for variable inside the local scope, then inside parent's scopes up until global. And then if not found creates a global one.
+  A: Yes. Javascript at first searches for variable inside the local scope, then inside parent's scopes up until global. And then if not found creates a global one.
 
 #### Functions
 
@@ -103,7 +106,7 @@ A: Yes. Javascript at first searches for variable inside the local scope, then i
     }
     greeting(sayHello, "JavaScript!");
     ```
-A: Yes. "Hello, JavaScript!"   
+  A: Yes. "Hello, JavaScript!"   
 
 9. Transform this function into an arrow function. Explain what is the goal of this parameter `num1=10`.
 
@@ -116,7 +119,7 @@ A: Yes. "Hello, JavaScript!"
       sum(42,0)
       console.log("the answer to everything is", sum(42,0))
       ```
-A: num1=10 means that 10 would be a default value if no other value is provided.
+  A: num1=10 means that 10 would be a default value if no other value is provided.
 
       ```javascript
           const sum = (num1=10, num2) => num1 + num2
@@ -135,14 +138,14 @@ A: num1=10 means that 10 would be a default value if no other value is provided.
      
      console.log(?)
      ```
-A: foo()(). This is a function returning a function, meaning you need to call at first the first function and then the second one. It's kinda currying, but currying is more about making it step-by-step, but here nothing happens on step one.
+  A: foo()(). This is a function returning a function, meaning you need to call at first the first function and then the second one. It's kinda currying, but currying is more about making it step-by-step, but here nothing happens on step one.
 
 #### DOM
 
 11. Which of the following events will you add in the `addEventListener()`method? 
       ☐ click
       ☐ onclick
-A: click.
+  A: click.
 
 12. Does the `addEventListener()` method allow you to add many events to the same element?
 
@@ -151,7 +154,7 @@ A: click.
     x.addEventListener("click", func2);
     x.addEventListener("mouseout", func3);`
     ```
-A: yes.
+  A: yes.
 
 13. DOM exercise
 
@@ -163,8 +166,8 @@ A: yes.
       
       2. Part II : Add to each new paragraph, an event listener of mouse over. When you hover on a paragraph, the paragraph should become red (ie. color of the                        text).
 
-A: Let's imagine we have index.html with 2 elements in the body <div id='root'></div> and <button id='add'>Add para</button>.
-JS code:
+  A: Let's imagine we have index.html with 2 elements in the body <div id='root'></div> and <button id='add'>Add para</button>.
+  JS code:
 
     ```javascript
       const root = document.getElementById('root')
@@ -192,7 +195,7 @@ Console.log the sum of this array
        const marks = [67, 60, 89, 90, 67, 42];
     ```
    
-A: 
+  A: 
   ```javascript
       const marks = [67, 60, 89, 90, 67, 42];
       let sum = 0
@@ -214,7 +217,7 @@ A:
             return m >= 50;
          });
      ```
-A: false.
+  A: false.
 
 
 16. What does the following code log?
@@ -228,7 +231,7 @@ A: false.
 
        console.log(bignums);
     ```
-A: [50, 88]
+  A: [50, 88]
 
 17. Use a **javascript array method** to square the value of every element in the array. 
 
@@ -278,27 +281,27 @@ A: [50, 88]
 
     changeTshirt(tshirt)
     ```
-A: objects are passed by reference. So if you when you change the property of myshirt parameter it's actually references a tshirt object. Thus tshirt.color will also be changed to red.
+  A: objects are passed by reference. So if you when you change the property of myshirt parameter it's actually references a tshirt object. Thus tshirt.color will also be changed to red.
 
 
 21. How would you change the code above, so that when you modify the key `color` from the parameter `myshirt`, it won't change the global variable `tshirt` ?
-A: you can use spread opperator to make a copy of the object.
-```javascript
-    function changeTshirt ({...myshirt}){
-        console.log("myshirt", myshirt);
-        myshirt.color = "red"
-        console.log("myshirt", myshirt); //this is the parameter
-        console.log("tshirt", tshirt);   //this is the global variable
-    }
+  A: you can use spread opperator to make a copy of the object.
+    ```javascript
+      function changeTshirt ({...myshirt}){
+          console.log("myshirt", myshirt);
+          myshirt.color = "red"
+          console.log("myshirt", myshirt); //this is the parameter
+          console.log("tshirt", tshirt);   //this is the global variable
+      }
 
 
-    const tshirt = {
-        color : "blue",
-        price : 10
-    }
+      const tshirt = {
+          color : "blue",
+          price : 10
+      }
 
-    changeTshirt(tshirt)
-  ```
+      changeTshirt(tshirt)
+    ```
 
 22. Use object destructuring to retrieve the value of the keys `france` and `spain`
 
@@ -352,7 +355,7 @@ A: you can use spread opperator to make a copy of the object.
     const cake = new Item("Chocolate Cake", 10);
     cake.displayInfo();
     ```
-A: Chocolate Cake is for $ 10
+  A: Chocolate Cake is for $ 10
 
 #### Promises
 
@@ -367,7 +370,7 @@ A: Chocolate Cake is for $ 10
         console.log(data)
       })
     ```
-A: SUCCESS!
+  A: SUCCESS!
 
 26. What will be displayed by the following code, after 2 seconds?
 
@@ -382,7 +385,7 @@ A: SUCCESS!
        console.log(data);
     });
     ```
-A: OK.
+  A: OK.
 
 27. Consider the following `async` function and its output. What will be displayed to the console when calling the `test()` function? Explain the process
 
@@ -401,8 +404,8 @@ A: OK.
     
     test();
     ```
-A: The output would be 'done!' and it would be consol logged in a second.
-On line 'result = await promise' the script will pause for a second until it retrieves resolve value from the promise. All further steps will wait until it happen, thus result will be overriden before console.log happens. So it will show this new resolve value.
+  A: The output would be 'done!' and it would be consol logged in a second.
+  On line 'result = await promise' the script will pause for a second until it retrieves resolve value from the promise. All further steps will wait until it happen, thus result will be overriden before console.log happens. So it will show this new resolve value.
 
 28. Use **async await**, and **the fetch API** to fetch a fact on cats and display it. Use this third party API :  `https://catfact.ninja/fact`
     1. In the HTML file, create a button, everytime you click it you will add a random cat fact on the DOM 
