@@ -1,6 +1,99 @@
+@import url('https://fonts.cdnfonts.com/css/montserrat');
+
+:root {
+    --color-blue: blue;
+}
+
+* {
+    margin: 0;padding: 0;box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
 form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 300px;
-    align-items: flex-start;
+    /* align-items: flex-start; */
+}
+
+textarea {
+    resize: none;
+}
+
+input, textarea {
+    padding: 5px;
+    border: none;
+    border: 1px solid var(--color-blue);
+}
+
+button {
+    padding: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: var(--color-blue);
+    border: none;
+    color: white;
+}
+
+.tasks-container, .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-height: 100svh;
+    min-height: 100vh;
+    gap: 10px;
+}
+
+.task {
+    border: 1px solid var(--color-blue);
+    padding: 20px;
+    width: 300px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 20px;
+    position: relative;
+}
+
+.task h2 {
+    text-transform: uppercase;
+}
+
+.task p.collapsed {
+    display: none;
+}
+
+
+.topbar, .bottombar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: gray;
+}
+
+.topbar span {
+    cursor: pointer;
+}
+
+small {
+    color: gray;
+}
+
+.bottombar {
+    margin-top: auto;
+}
+
+.edit {
+    position: absolute;
+    top: 60px;
+    width: 250px;
+} 
+
+.completed {
+    color: lightcoral;
 }

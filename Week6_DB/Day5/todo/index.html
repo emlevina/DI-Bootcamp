@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form method="POST">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
-        <label for="description">Description</label>
-        <textarea name="description" id="description" cols="30" rows="10"> </textarea>
-        <label for="start-time">Start</label>
-        <input  type="datetime-local" id="start-time" name="start-time" value="2022-06-07T00:00"
-        min="2022-06-07T00:00">
-        <label for="end-time">End</label>
-        <input  type="datetime-local" id="end-time" name="end-time"  value="2022-06-07T00:00"
-        min="2022-06-07T00:00">
-        <button>Submit</button>
-    </form>
+    <div class="container">
+        <form method="POST">
+            <label for="name">Task name</label>
+            <input type="text" name="name" id="name" required>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10"> </textarea>
+            <label for="start-time">Start date</label>
+            <input  type="datetime-local" id="start-time" name="start-time" value="2022-06-07T00:00"
+            min="2022-06-07T00:00" required>
+            <label for="end-time">End date</label>
+            <input  type="datetime-local" id="end-time" name="end-time"  value="2022-06-07T00:00"
+            min="2022-06-07T00:00">
+            <button>Submit</button>
+        </form>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
