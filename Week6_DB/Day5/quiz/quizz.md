@@ -117,9 +117,10 @@ A: Yes. "Hello, JavaScript!"
       console.log("the answer to everything is", sum(42,0))
       ```
 A: num1=10 means that 10 would be a default value if no other value is provided.
-  ```javascript
-      const sum = (num1=10, num2) => num1 + num2
-  ```
+
+      ```javascript
+          const sum = (num1=10, num2) => num1 + num2
+      ```
 
 
 10. How would you call the `foo` function in the console.log, in order to display what the `bar` function returns ? Explain the process and concept behind it
@@ -164,22 +165,23 @@ A: yes.
 
 A: Let's imagine we have index.html with 2 elements in the body <div id='root'></div> and <button id='add'>Add para</button>.
 JS code:
-  ```javascript
-  const root = document.getElementById('root')
-  const addBtn = document.getElementById('add')
-  let counter = 0
 
-  const addParagraph = () => {
-    counter++
-    const text = counter % 3 === 0 ? 'Hello' : 'New Paragraph'
-    const p = document.createElement('p')
-    p.append(text)
-    p.addEventListener('mouseover', () => { e.target.style.color = 'red'})
-    root.append(p)
-  }
+    ```javascript
+      const root = document.getElementById('root')
+      const addBtn = document.getElementById('add')
+      let counter = 0
 
-  addBtn.addEventListener('click', addParagraph)
-  ```
+      const addParagraph = () => {
+        counter++
+        const text = counter % 3 === 0 ? 'Hello' : 'New Paragraph'
+        const p = document.createElement('p')
+        p.append(text)
+        p.addEventListener('mouseover', () => { e.target.style.color = 'red'})
+        root.append(p)
+      }
+
+      addBtn.addEventListener('click', addParagraph)
+    ```
 
 #### Array Methods : forEach, map, filter, reduce, find, every, some
 
