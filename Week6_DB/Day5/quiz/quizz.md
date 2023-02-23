@@ -166,7 +166,7 @@
       
       2. Part II : Add to each new paragraph, an event listener of mouse over. When you hover on a paragraph, the paragraph should become red (ie. color of the                        text).
 
->  A: Let's imagine we have index.html with 2 elements in the body <div id='root'></div> and <button id='add'>Add para</button>.
+>  A: Let's imagine we have index.html with 2 elements in the body `<div id='root'></div>` and `<button id='add'>Add para</button>`.
   JS code:
 
     ```javascript
