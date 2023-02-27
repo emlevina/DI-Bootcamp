@@ -5,15 +5,13 @@ app.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
 
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
-app.use('/form', express.static(__dirname + '/public'))
+app.use('/form', express.static(__dirname + '/public'));
 // The route /pic : displays an HTML file with a picture of your choice.
 // The route /form : displays an HTML file.
-app.get('/pic', (req, res)=>{
-    res.send(`<img width='100px' src='https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'>`)
-})
+app.use('/pic', express.static(__dirname + '/public/pic.html'));
 
 app.get('/aboutMe/:hobby', (req, res) => {
     const hobby = req.params.hobby
