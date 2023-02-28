@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .container {
+            min-height: calc(100vh - 60px);
+        }
+
+        .nav {
+            background: rgb(75, 205, 149);
+            padding: 30px 100px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            padding-left: 10px;
+        }
+
+        .nav button {
+            height: 40px;
+            padding: 0 10px;
+        }
+
+        .nav input:focus {
+            outline: 2px solid salmon;
+        }
+
+        body {
+            background: rgb(94, 94, 193);
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px 50px;
+            justify-content: center;
+            background: rgb(94, 94, 193) url(img/page_bg.png);
+            align-content: flex-start;
+        }
+
+        .card {
+            width: 250px;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            background: rgb(75, 205, 149) url(img/card_bg.png);
+            background-size: cover;
+            border-radius: 10px;
+            padding: 20px;
+            color: rgb(50, 50, 50);
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+        }
+
+        .card img {
+            border-radius: 50%;
+            background-color: rgb(50, 50, 50);
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="getData(event)" class="nav">
+        <input type="text" name="search">
+        <button>send</button>
+    </form>
+    <div class="container" id="root"></div>
+    <script>
+        class Robot {
+            constructor({ id, name, email, image }) {
+                this.id = id
+                this.name = name
+                this.email = email
+                this.image = `https://robohash.org/${this.id}?200x200`
+            }
+
+            createCard = () => {
+                const card = document.createElement('div')
+                const pic = document.createElement('img')
+                const h2 = document.createElement('h2')
+                const p = document.createElement('p')
+                pic.setAttribute('src', this.image)
+                h2.append(this.name)
+                p.append(this.email)
+                card.append(pic, h2, p)
+                card.setAttribute('id', this.id)
+                card.classList.add('card')
+                return card
+            }
+        }
+        const root = document.getElementById('root');
+        const getData = (e) => {
+            e.preventDefault()
+            //console.log(e.target.search.value)
+            fetch(`/robots?search=${e.target.search.value}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    root.innerHTML = ''
+                    data.forEach(robot => addCard(robot))
+                })
+        }
+
+        const addCard = (robot) => {
+            const newRobot = new Robot(robot)
+            root.append(newRobot.createCard())
+        }
+    </script>
+</body>
+
+</html>

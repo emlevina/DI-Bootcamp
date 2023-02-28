@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="sendData(event)">
+        <input type="text" name="name">
+        <button>Send</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        const sendData = (e) => {
+            e.preventDefault()
+            fetch('/item', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: e.target.name.value
+                })
+            })
+            .then(res => res.json())
+            .then(data => showData(data))
+        }
+
+        const showData = (string) => {
+            const output = document.getElementById('output')
+            output.append(JSON.stringify(string))
+        }
+    </script>
+</body>
+
+</html>
