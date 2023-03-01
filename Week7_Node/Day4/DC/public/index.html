@@ -8,10 +8,10 @@
 </head>
 <body>
         <form onsubmit="createUser(event)">
-            <input type="text" name="firstName" id="firstName">
-            <input type="text" name="lastName" id="lastName">
-            <input type="email" name="email" id="email">
-            <input type="password" name="password" id="password">
+            <input type="text" name="firstName" id="firstName" required placeholder="first name">
+            <input type="text" name="lastName" id="lastName" required placeholder="last name">
+            <input type="email" name="email" id="email" required placeholder="email">
+            <input type="password" name="password" id="password" required placeholder="password">
             <button>Register</button>
         </form>
         <div id="output"></div>
