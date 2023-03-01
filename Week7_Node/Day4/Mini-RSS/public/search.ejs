@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/navbar'); %>
+        <form onsubmit="searchArticles(event)" class="input-group mb-3" action="/search/title">
+            <input class="form-control" type="text" name="search" placeholder="by title">
+            <button class="btn btn-outline-secondary" type="button" >Send</button>
+        </form>
+        <%- include('partials/posts'); %>
+</body>
+
+</html>

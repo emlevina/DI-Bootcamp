@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat';
+        }
+
+        .container {
+            padding: 100px;
+            min-height: 100vh;
+            background: pink;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        #root {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            width: 150px;
+            box-shadow: 0 0 20px lightcoral;
+        }
+
+        input,
+        button {
+            padding: 2px 5px;
+            border: none;
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 9px rgba(255, 0, 217, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="input" onsubmit="searchWithParams(event)">
+            <input type="text" name="prod_id" id="prod_id" placeholder="search with id">
+            <button type="submit">Search</button>
+        </form>
+        <form id="input" onsubmit="searchWithQuery(event)">
+            <input type="text" name="prod_name" id="prod_name" placeholder="search with name">
+            <button type="submit">Search</button>
+        </form>
+        <div id="root">
+        </div>
+
+    </div>
+
+    <script>
+        const fetchApi = async () => {
+            const url = 'http://localhost:5000/api/products'
+            try {
+                let res = await fetch(url)
+                if (res.ok) {
+                    const data = await res.json()
+                    // console.log(data)
+                    data.forEach(element => {
+                        createElement(element)
+                    });
+                } else {
+                    throw new Error('Response from server not OK')
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        const createElement = (element) => {
+            const root = document.getElementById('root')
+            const price = document.createElement('p')
+            const name = document.createElement('h2')
+            const card = document.createElement('div')
+            card.classList.add('card')
+            price.append(`Price: ${element.price}`)
+            name.append(element.name)
+            card.append(name, price)
+            root.append(card)
+        }
+
+        const searchWithParams = (e) => {
+            e.preventDefault()
+            const input = document.getElementById('prod_id')
+            const prod_id = input.value
+
+            fetch(`http://localhost:5000/api/products/${prod_id}`)
+                .then(res => {
+                    if (res.ok) {
+                        return res.json()
+                    } else {throw new Error()}
+                })
+                .then(data => {
+                    clearScreen()
+                    createElement(data)
+                    input.value = ''
+                })
+                .catch(err => console.log(err))
+        }
+        const searchWithQuery = (e) => {
+            e.preventDefault()
+            const input = document.getElementById('prod_name')
+            const prod_name = input.value
+
+            fetch(`http://localhost:5000/api/search?name=${prod_name}`)
+                .then(res => res.json())
+                .then(data => {
+                    clearScreen()
+                    data.map(element => createElement(element))
+                    input.value = ''
+                })
+                .catch(err => console.log(err))
+        }
+
+        const clearScreen = () => {
+            document.getElementById('root').innerHTML = ''
+        }
+
+        fetchApi()
+    </script>
+</body>
+
+</html>

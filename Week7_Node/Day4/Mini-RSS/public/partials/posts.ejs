@@ -1,0 +1,13 @@
+<div class="gallery">
+    <% feed.forEach(post=> { %>
+        <div class="card">
+            <a href=<%post.link%> target="_blank"><%=post.title%></a>
+            <small>
+                <%=post.pubDate%>
+            </small>
+            <p>
+                <%=post.content%>
+            </p>
+        </div>
+        <% }) %>
+</div>
