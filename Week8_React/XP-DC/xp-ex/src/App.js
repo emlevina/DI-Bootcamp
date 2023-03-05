@@ -1,5 +1,6 @@
 import UserFavouriteColors from './UserFavouriteColors'
 import Exercise4 from './Exercise4';
+import MyCarousel from './Carousel';
 
 function App() {
   const myelement = <h1>I Love JSX!</h1>;
@@ -19,6 +20,7 @@ function App() {
       <h3>{user.lastName}</h3>
       <UserFavouriteColors favAnimals={user.favAnimals}/>
       <Exercise4 />
+      <MyCarousel/>
     </div>
   );
 }
