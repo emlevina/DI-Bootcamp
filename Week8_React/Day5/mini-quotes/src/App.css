@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s 0.1s ease-out;
+}
+
+.card {
+  padding: 30px;
+  max-width: 600px;
+  width: 80%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  margin-top: auto;
+  align-self: end;
+  padding: 10px 20px;
+  border: 1px solid white;
+  background: white;
+  transition: all 0.2s ease-in;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.button:hover {
+  background: rgb(238, 238, 238);
+}
+
+.card h2 {
+  font-size: 24px;
+  line-height: 1;
+  transition: all 0.2s ease-in;
+}
+
+.card p {
+  color: gray;
+  text-align: right;
+}
+
+.quoteMark {
+  font-size: 45px;
+  position: relative;
+  top: 10px
+}

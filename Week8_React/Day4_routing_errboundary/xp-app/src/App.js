@@ -40,9 +40,9 @@ function App() {
         </nav>
         <Routes>
           <Route path='/' element={(
-            <ErrorBoundary><Home /></ErrorBoundary>)} />
-          <Route path='/shop' element={<ErrorBoundary><Shop /></ErrorBoundary>} />
-          <Route path='/profile' element={<ErrorBoundary><Profile /></ErrorBoundary>} />
+            <ErrorBoundary key={1}><Home /></ErrorBoundary>)} />
+          <Route path='/shop' element={<ErrorBoundary key={2}><Shop /></ErrorBoundary>} />
+          <Route path='/profile' element={<ErrorBoundary key={3}><Profile /></ErrorBoundary>} />
         </Routes>
 
       </BrowserRouter>
