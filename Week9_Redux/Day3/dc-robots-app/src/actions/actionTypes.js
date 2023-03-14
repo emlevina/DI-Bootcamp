@@ -1,0 +1,4 @@
+export const LOADING = 'LOADING'
+export const GET_ROBOTS_SUCCESS = 'GET_ROBOTS_SUCCESS'
+export const GET_ROBOTS_FAILED = 'GET_ROBOTS_FAILED'
+export const SEARCH = 'SEARCH'
