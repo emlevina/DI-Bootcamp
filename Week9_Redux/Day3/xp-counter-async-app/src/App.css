@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  padding: 40px;
+}
+
+button {
+  min-width: 40px;
+}
