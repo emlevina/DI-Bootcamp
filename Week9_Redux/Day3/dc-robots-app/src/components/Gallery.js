@@ -15,6 +15,7 @@ const Card = ({ robot }) => {
 const Gallery = () => {
     const robots = useSelector(state => state.robots)
     const search = useSelector(state => state.search)
+    const isLoading = useSelector(state => state.isLoading)
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(getRobots())
@@ -22,9 +23,10 @@ const Gallery = () => {
 
     return (
         <div className='gallery'>
-            {robots
+            
+            {isLoading ? 'Loading...' : (robots
                 .filter(robot => robot.name.toLowerCase().includes(search.toLowerCase()))
-                .map(robot => <Card robot={robot} key={robot.id} />)
+                .map(robot => <Card robot={robot} key={robot.id} />))
             }
         </div>
     );
