@@ -1,10 +1,21 @@
 const {
     getAllProducts,
     getProductById,
+    getProductByQuery,
     insertProduct,
     updateProduct,
     deleteProduct
- } = require('../modules/products');
+} = require('../modules/products');
+
+const _getProductByQuery = (req, res) => {
+    getProductByQuery(req.query.name)
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
 
 const _getAllProducts = (req, res) => {
     getAllProducts()
@@ -60,6 +71,7 @@ const _deleteProduct = (req, res) => {
 module.exports = {
     _getAllProducts,
     _getProductById,
+    _getProductByQuery,
     _insertProduct,
     _updateProduct,
     _deleteProduct
